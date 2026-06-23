@@ -288,6 +288,46 @@ nav{
 .contact-info .c-label{font-size:.65rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px}
 .contact-info .c-val{font-size:.9rem;color:#fff;font-weight:600}
 
+/* ── PROJECTS ── */
+.projects-section{position:relative;z-index:2;padding:0 24px 80px}
+.projects-wrap{max-width:900px;margin:0 auto}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:8px}
+@media(max-width:600px){.proj-grid{grid-template-columns:1fr}}
+.proj-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px 24px;
+  position:relative;overflow:hidden;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.proj-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--g),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.proj-card:hover{transform:translateY(-6px);border-color:rgba(173,255,47,.4);box-shadow:0 0 30px rgba(173,255,47,.06),0 20px 40px #000a}
+.proj-card:hover::before{opacity:1}
+.proj-icon{font-size:2.4rem;display:block;margin-bottom:14px;filter:drop-shadow(0 0 8px rgba(173,255,47,.5))}
+.proj-badge{
+  display:inline-block;background:rgba(173,255,47,.1);
+  border:1px solid rgba(173,255,47,.3);color:var(--g);
+  font-size:.65rem;letter-spacing:2px;padding:3px 10px;
+  border-radius:20px;margin-bottom:12px;font-family:'Orbitron',sans-serif;
+}
+.proj-title{font-family:'Orbitron',sans-serif;color:#fff;font-size:1rem;margin-bottom:10px;letter-spacing:1px}
+.proj-desc{color:#888;font-size:.88rem;line-height:1.7;margin-bottom:22px}
+.proj-desc span{color:rgba(173,255,47,.8)}
+.proj-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:11px;background:transparent;
+  border:1px solid var(--g);color:var(--g);
+  font-family:'Rajdhani',sans-serif;font-size:.9rem;font-weight:600;
+  letter-spacing:2px;border-radius:8px;cursor:pointer;text-decoration:none;
+  transition:background .25s,color .25s,box-shadow .25s;
+}
+.proj-btn:hover{background:var(--g);color:#000;box-shadow:0 0 18px rgba(173,255,47,.4)}
+
 /* ── FOOTER ── */
 footer{
   position:relative;z-index:2;
@@ -313,6 +353,7 @@ footer span{color:var(--g)}
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -417,6 +458,41 @@ footer span{color:var(--g)}
         <div class="skill-top"><span class="skill-name">Bot Automation & Commands</span><span class="skill-pct">92%</span></div>
         <div class="skill-bar"><div class="skill-fill" data-w="92"></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section reveal" id="projects">
+  <div class="projects-wrap">
+    <div class="section-eyebrow reveal">My Work</div>
+    <h2 class="section-title reveal">Projects</h2>
+    <div class="proj-grid">
+
+      <!-- SIM Database -->
+      <div class="proj-card">
+        <span class="proj-icon">🗄️</span>
+        <span class="proj-badge">LIVE WEBSITE</span>
+        <h3 class="proj-title">SIM DATABASE</h3>
+        <p class="proj-desc">Pakistan SIM lookup tool. Search by <span>name, CNIC ya number</span> — instant results with network, address & owner info.</p>
+        <a class="proj-btn" href="https://us-mod-simdatabase.vercel.app/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          VISIT WEBSITE
+        </a>
+      </div>
+
+      <!-- WhatsApp Bot -->
+      <div class="proj-card">
+        <span class="proj-icon">🤖</span>
+        <span class="proj-badge">OPEN SOURCE</span>
+        <h3 class="proj-title">US MOD MD V1</h3>
+        <p class="proj-desc">WhatsApp Multi-Device bot. Built on <span>Baileys library</span> — premium features, plugin system & auto-pairing support.</p>
+        <a class="proj-btn" href="https://github.com/Usman7472860/US-MOD-MD-V1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.654 1.653.242 2.873.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          VIEW ON GITHUB
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
